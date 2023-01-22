@@ -114,6 +114,10 @@ Alternately, you can specify just the default value you want to override without
 - `setup-etc-hosts`
   - Adds the proper entry to /etc/hosts, but must be run as root (`$ sudo ./setup-etc-hosts`)
 
+### ToDo List
+
+- Add collapse/expand to list items via Bootstrap or jQuery
+
 ## Author
 
 Kenny Carlile
