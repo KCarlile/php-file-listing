@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo "================================================================================"
+echo "This script will add the following entry to /etc/hosts if it does not"
+echo "already exist:"
+echo ""
+echo -e "127.0.0.1\thttp://php-file-listing.local"
+echo ""
+echo "This script must be run as root to execute properly. Please run it like this:"
+echo "$ sudo ./setup-etc-hosts"
+echo "================================================================================"
+echo ""
+
+# check to see if the script has been run as root, exit if not
+if [ "$EUID" -ne 0 ]
+    then echo "[ERROR] This script needs to be run as root. Run this script with sudo."
+    exit
+fi
+
+# check to see if the entry in /etc/hosts already exists
+if grep -q "php-file-listing.local" /etc/hosts; then
+    echo "An entry for php-file-listing.local already exists in /etc/hosts."
+    exit
+else
+    # add the entry to /etc/hosts
+    echo -e "Adding '127.0.0.1\tphp-file-listing.local' to /etc/hosts..."
+    echo -e "127.0.0.1\tphp-file-listing.local" >> /etc/hosts
+    
+    # check to see if it was successful and return a message
+    if grep -q "php-file-listing.local" /etc/hosts; then
+        echo "Entry successfully added to /etc/hosts."
+    else
+        echo "[ERROR] Entry failed to be added to /etc/hosts."
+    fi
+fi

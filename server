@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "================================================================================"
+echo "This script checks for the proper /etc/hosts entry and then launches the"
+echo "Docker container defined in Dockerfile and docker-compose.yml."
+echo ""
+echo "URL: http://php-file-listing.local"
+echo "================================================================================"
+echo ""
+
+if ! grep -q "php-file-listing.local" /etc/hosts; then
+    echo "There is no entry in /etc/hosts for php-file-listing.local."
+    echo "Please run 'sudo ./setup-etc-hosts'."
+    exit
+fi
+
+docker compose up --build

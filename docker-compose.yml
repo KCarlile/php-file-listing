@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+    php-file-listing-php-apache:
+        build: .
+        image: php:8-apache
+        volumes:
+            - ./:/var/www/html/
+        container_name: php-file-listing-php-apache
+        ports:
+            - 80:80

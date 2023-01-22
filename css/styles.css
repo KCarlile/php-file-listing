@@ -1,0 +1,17 @@
+/**
+ * @file css/styles.css
+ * 
+ * This stylesheet is used for overriding the default Twitter Bootstrap styles.
+ * 
+ * @author Kenny Carlile
+ * @date January 21, 2023
+ * @link https://www.kcarlile.com/
+ * @link https://github.com/KCarlile
+ * @link https://github.com/KCarlile/php-file-listing
+ */
+
+footer {
+    border-top: 1px solid #333333;
+    font-size: .8em;
+    padding-top: .8em;
+}
